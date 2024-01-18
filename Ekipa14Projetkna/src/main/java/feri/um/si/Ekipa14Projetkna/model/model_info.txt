@@ -1,0 +1,5 @@
+-tukaj definirama razrede, ki predstavljajo podatkovne objekte ali
+entitete v najini aplikaciji
+
+-ti razredi so običajno uporabljeni za predstavitev podatkovne strukture v aplikacij
+

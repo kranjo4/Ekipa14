@@ -1,0 +1,12 @@
+-primer, če je kompleksen objekt v najinem  model (glej model folder), lahk naredima preprost DTO, ki vsebuje le tiste podatke,
+ ki jih rabima za določen del sistema, namesto da bi prenašali celoten kompleksen objekt
+
+ -naredil sm že DTO za izpis (lahko uporabima kjer želima samo določene stvari izpisat in prikazat stranki)
+  {
+         "uporabnikId": ,
+         "username": "",
+         "tezaVKG": ,
+         "visinaVcm": ,
+         "starost":
+  }
+  -NOTE --> potrebno ga je popravit ker za enkrat je narejn tako, da samo prvo vrednost iz Lista vrne, mogel bi pa vse?

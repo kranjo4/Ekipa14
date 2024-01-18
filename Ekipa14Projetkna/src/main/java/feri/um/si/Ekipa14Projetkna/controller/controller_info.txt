@@ -1,0 +1,4 @@
+-tukaj boma definirala razrede, ki sprejemajo in obdelujejo HTTP zahtevke
+
+-kontrolerji so odgovorni za upravljanje prehoda med uporabniškim vmesnikom
+in poslovnimi storitvami

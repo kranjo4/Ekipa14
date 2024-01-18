@@ -1,0 +1,9 @@
+-tuki običajno definiramo storitvene razrede ki vsebujejo poslovno logiko
+-storitve so odgovorne za izvajanje poslovnih operacij, ki jih zahtevajo kontrolerji
+
+-poslovna logika skrbi za:
+    -pravila poslovnega procesa
+    -manipulacijo s podatki
+    -kontrola dostopa
+    -odvzem in posodabljanje stanje
+    -error handling

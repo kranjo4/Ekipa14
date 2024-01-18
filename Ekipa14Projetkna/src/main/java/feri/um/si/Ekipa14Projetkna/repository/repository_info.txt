@@ -1,0 +1,4 @@
+-v tem paketu običajno definiramo vmesnike (abstraktne razrede),
+ki omogočajo dostop do podatkovne baze
+
+-Spring Data JPA avtomatsko implementira metode na podlagi imen in vrstnic vmesnika
