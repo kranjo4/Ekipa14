@@ -42,4 +42,8 @@ public class UporabnikServiceImpl implements UporabnikService {
         uporabnikMeraDTO.setStarost(uporabnik.getMERA().getStarost());
         return uporabnikMeraDTO;
     }
+
+    public Uporabnik getUporabnikById(int id){
+        return uporabnnikRepository.findById(id).orElse(null);
+    }
 }

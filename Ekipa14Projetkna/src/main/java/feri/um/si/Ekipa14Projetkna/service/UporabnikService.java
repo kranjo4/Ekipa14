@@ -8,6 +8,6 @@ import java.util.List;
 public interface UporabnikService {
     public Uporabnik saveUporabnik(Uporabnik uporabnik);
     public List<Uporabnik> getAllUporabniki();
-
     public List<UporabnikMeraDTO> getAllUporabnikMere();
+    public Uporabnik getUporabnikById(int id);
 }

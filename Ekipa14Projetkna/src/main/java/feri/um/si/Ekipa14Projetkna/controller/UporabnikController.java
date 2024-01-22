@@ -1,6 +1,7 @@
 package feri.um.si.Ekipa14Projetkna.controller;
 
 import feri.um.si.Ekipa14Projetkna.dto.UporabnikMeraDTO;
+import feri.um.si.Ekipa14Projetkna.exception.UporbnikNotFoundException;
 import feri.um.si.Ekipa14Projetkna.model.Uporabnik;
 import feri.um.si.Ekipa14Projetkna.service.UporabnikService;
 import jakarta.persistence.CascadeType;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/uporabnik")
+@CrossOrigin("http://localhost:3000")
 public class UporabnikController {
     @Autowired
     private UporabnikService uporabnikService;
@@ -36,6 +38,11 @@ public class UporabnikController {
     public List<Uporabnik> getAllUporabniki(){
         return uporabnikService.getAllUporabniki();
     };
+
+    @GetMapping("/getUporabnikById/{id}")
+    Uporabnik fetchUporabnikById(@PathVariable int id){
+        return uporabnikService.getUporabnikById(id);
+    }
 
 
 }
