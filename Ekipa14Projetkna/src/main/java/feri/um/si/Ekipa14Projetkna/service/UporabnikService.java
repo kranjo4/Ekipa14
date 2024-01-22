@@ -10,4 +10,5 @@ public interface UporabnikService {
     public List<Uporabnik> getAllUporabniki();
     public List<UporabnikMeraDTO> getAllUporabnikMere();
     public Uporabnik getUporabnikById(int id);
+    public Uporabnik deleteUporabnikById(int id);
 }

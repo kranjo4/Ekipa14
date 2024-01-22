@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Uporabnik {
+public class Uporabnik{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -93,4 +93,5 @@ public class Uporabnik {
     public void setGeslo(String geslo) {
         this.geslo = geslo;
     }
+
 }

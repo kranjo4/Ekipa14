@@ -46,4 +46,11 @@ public class UporabnikServiceImpl implements UporabnikService {
     public Uporabnik getUporabnikById(int id){
         return uporabnnikRepository.findById(id).orElse(null);
     }
+
+    public Uporabnik deleteUporabnikById(int id){
+        Uporabnik uporabnik = uporabnnikRepository.findById(id).orElse(null);
+
+        uporabnnikRepository.deleteById(id);
+        return uporabnik;
+    }
 }
