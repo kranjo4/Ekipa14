@@ -20,6 +20,7 @@ public class Uporabnik{
     private String username;
     private String mail;
     private String geslo;
+
     //    public ArrayList<Mera> seznamMer = new ArrayList<Mera>();
 //    public ArrayList<Trening> seznamTreningov = new ArrayList<Trening>();
 //    public ArrayList<Rutina> seznamRutin = new ArrayList<Rutina>();
