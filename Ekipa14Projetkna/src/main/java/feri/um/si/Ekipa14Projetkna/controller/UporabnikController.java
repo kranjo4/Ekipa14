@@ -79,5 +79,18 @@ public class UporabnikController {
         return "Uporabnik z id: " + id + " je bil uspešno izbrisan";
     }
 
+    @PostMapping ("/prijava")
+    public int preveriPrijavo(@RequestBody Uporabnik user){
+        List<Uporabnik> vsiUporabniki = uporabnikService.getAllUporabniki();
+
+        for (Uporabnik uporabnik:
+             vsiUporabniki) {
+            if(uporabnik.getMail().equals(user.getMail())&&uporabnik.getGeslo().equals(user.getGeslo())){
+                return uporabnik.getId();
+            }
+        }
+        return -1;
+    }
+
 
 }

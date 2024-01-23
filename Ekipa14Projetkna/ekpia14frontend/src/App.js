@@ -7,6 +7,8 @@ import Crud from './pages/Crud';
 //tuki mi ni jasn zaka meče error ampak dela tak da to pust
 import Index from './pages/Index';
 import Registration from './pages/Registration'
+import Prijava from './pages/Prijava'
+import Mere from './pages/Mere'
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/crud" element={<Crud />} />
           <Route path="/index" element={<Index />} />
           <Route path="/registration" element={<Registration />} />
+          <Route path="/prijava" element={<Prijava />} />
+          <Route path="/mere" element={<Mere />} />
         </Routes>
       </div>
     </Router>
