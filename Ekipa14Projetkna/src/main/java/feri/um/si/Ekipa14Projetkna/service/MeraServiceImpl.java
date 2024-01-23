@@ -23,4 +23,9 @@ public class MeraServiceImpl implements MeraService {
         return meraRepository.findAll();
     }
 
+    @Override
+    public Mera getMeraById(int id) {
+        return meraRepository.findById(id).orElse(null);
+    }
+
 }
