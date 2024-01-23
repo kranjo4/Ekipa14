@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import { Link, useParams } from 'react-router-dom';
 
 function Crud() {
 
     const[uporabniki, setUporabniki]=useState([])
+
+    const {id}=useParams();
 
     useEffect(()=>{
         loadUporabniki();
@@ -12,6 +15,11 @@ function Crud() {
     const loadUporabniki = async ()=>{
         const result = await axios.get("http://localhost:8080/uporabnik/getAllUporabnik")
         setUporabniki(result.data)
+    }
+
+    const deleteUporabnik= async (id)=>{
+        await axios.delete(`http://localhost:8080/uporabnik/uporabnik/${id}`)
+        loadUporabniki()
     }
 
     return (
@@ -27,7 +35,7 @@ function Crud() {
                         <th scope="col">Priimek</th>
                         <th scope="col">Username</th>
                         <th scope="col">Gmail</th>
-                        <th scope="col">Geslo</th>
+                        {/* <th scope="col">Geslo</th> */}
                         <th>Uredi</th>
                         </tr>
                     </thead>
@@ -42,11 +50,16 @@ function Crud() {
                             <td>{uporabnik.priimek}</td>
                             <td>{uporabnik.username}</td>
                             <td>{uporabnik.mail}</td>
-                            <td>{uporabnik.geslo}</td>
+                            {/* <td>{uporabnik.geslo}</td> */}
                             <td>
-                                <button className="btn btn-primary mx-2">View</button>
-                                <button className="btn btn-outline-primary mx-2">Edit</button>
-                                <button className="btn btn-danger mx-2">Delete</button>
+                                {/* <button className="btn btn-primary mx-2">View</button> */}
+                                <Link className="btn btn-outline-primary mx-2"
+                                
+                                to={`/edituser/${uporabnik.id}`}
+                                
+                                >Edit</Link>
+                                <button className="btn btn-outline-danger mx-2" onClick={()=> deleteUporabnik(uporabnik.id)}>
+                                    Delete</button>
                             </td>
                         </tr>
                                 ))
