@@ -1,13 +1,17 @@
 package feri.um.si.Ekipa14Projetkna.controller;
 
+import feri.um.si.Ekipa14Projetkna.exception.MeraNotFoundException;
 import feri.um.si.Ekipa14Projetkna.model.Mera;
 
+import feri.um.si.Ekipa14Projetkna.model.Uporabnik;
 import feri.um.si.Ekipa14Projetkna.service.MeraService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+
 
 @RestController
 @RequestMapping("/mera")
@@ -26,6 +30,22 @@ public class MeraController {
         return meraService.saveMera(mera);
 //        meraService.saveMera(mera);
 //        return "Nova mera dodana";
+    }
+
+    @PutMapping("/updateMera/{id}")
+    public Mera update(@PathVariable int id, @RequestBody Mera novaMera){
+        Mera staraMera = meraService.getMeraById(id);
+
+
+        if (staraMera != null) {
+            staraMera.setTezaVKG(novaMera.getTezaVKG());
+            staraMera.setVisinaVcm(novaMera.getVisinaVcm());
+            staraMera.setStarost(novaMera.getStarost());
+            staraMera.setDatum_vnosa(novaMera.getDatum_vnosa());
+            return meraService.saveMera(staraMera);
+        } else {
+            throw new MeraNotFoundException(id);
+        }
     }
 
 }

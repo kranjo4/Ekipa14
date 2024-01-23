@@ -8,5 +8,6 @@ public interface MeraService {
 
     public Mera saveMera (Mera mera);
     public List<Mera> findAll();
+    public Mera getMeraById(int id);
 
 }
