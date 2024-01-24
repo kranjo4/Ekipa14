@@ -3,46 +3,44 @@ import axios from 'axios';
 
 function Mere() {
 
-    const[mere, setUporabniki]=useState([])
+    const[mere, setMera]=useState([])
 
     useEffect(()=>{
-        loadUporabniki();
+        loadMera();
     }, []);
 
-    const loadUporabniki = async ()=>{
-        const result = await axios.get("http://localhost:8080/uporabnik/getAllUporabnik")
-        setUporabniki(result.data)
+    const loadMera = async ()=>{
+        const result = await axios.get("/mera/getMU/"+sessionStorage.getItem('idPrijavljenega'))
+        setMera(result.data)
     }
 
     return (
         <div>
-            <h1>CRUD Page</h1>
+            <h1>Vse mere</h1>
             <div>
                 <table className="table border shadow">
                     <thead>
                         <tr>
                             {/* <th></th> */}
                         <th scope="col">Id</th>
-                        <th scope="col">Ime</th>
-                        <th scope="col">Priimek</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Gmail</th>
-                        <th scope="col">Geslo</th>
+                        <th scope="col">Teza</th>
+                        <th scope="col">Visina</th>
+                        <th scope="col">Starost</th>
+                        <th scope="col">Datum</th>
                         <th>Uredi</th>
                         </tr>
                     </thead>
                     <tbody>
 
                         {
-                            mere.map((uporabnik, index) =>(
+                            mere.map((mera, index) =>(
                         <tr>
                             {/* <th scope="row" key={index}>{index+1}</th> */}
-                            <td>{uporabnik.id}</td>
-                            <td>{uporabnik.ime}</td>
-                            <td>{uporabnik.priimek}</td>
-                            <td>{uporabnik.username}</td>
-                            <td>{uporabnik.mail}</td>
-                            <td>{uporabnik.geslo}</td>
+                            <td>{mera.id}</td>
+                            <td>{mera.tezaVKG}</td>
+                            <td>{mera.visinaVcm}</td>
+                            <td>{mera.starost}</td>
+                            <td>{mera.datum_vnosa}</td>
                             <td>
                                 <button className="btn btn-primary mx-2">View</button>
                                 <button className="btn btn-outline-primary mx-2">Edit</button>
