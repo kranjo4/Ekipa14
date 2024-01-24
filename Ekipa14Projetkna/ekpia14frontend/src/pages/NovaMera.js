@@ -5,6 +5,8 @@ import Container from "@mui/material/Container";
 import { Paper } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { Link, useNavigate} from 'react-router-dom';
 
 export default function NovaMera() {
   const paperStyle = { padding: "50px 30px", width: 500, margin: "10px auto" };
@@ -16,12 +18,19 @@ export default function NovaMera() {
   const [starost, setStarost] = useState("");
 
   const datum = new Date();
-    const formatiranDatum = `${datum.getFullYear()}-${datum.getMonth() + 1}-${datum.getDate()}`;
+    const year = datum.getFullYear();
+    const month = (datum.getMonth() + 1).toString().padStart(2, '0'); // Add leading zero if needed
+    const day = datum.getDate().toString().padStart(2, '0'); // Add leading zero if needed
+
+const formatiranDatum = `${year}-${month}-${day}`;
 
   const handleClick = async (e) => {
     e.preventDefault();
     const mera = {uporabnik: {id: id}, tezaVKG, visinaVcm, starost, datum_vnosa: formatiranDatum};
         console.log(mera)
+        // await axios.post("http://localhost:8080/mera/addMera", mera);
+        // // navigate("/index");
+
     fetch("http://localhost:8080/mera/addMera", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -30,7 +39,9 @@ export default function NovaMera() {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      return response.json(); // This returns a promise as well
+      window.location.href = 'http://localhost:3000/Mere'
+      return response.json(); 
+      // This returns a promise as well
     });
     // .then((data) => {
     //     console.log("Podatki:", data); //TODO spremeni pol da ni v konzoli
@@ -49,7 +60,7 @@ export default function NovaMera() {
   return (
     <Container>
       <Paper elevation={3} style={paperStyle}>
-        <h1 style={{ color: "black" }}>Prijava</h1>
+        <h1 style={{ color: "black" }}>Dodaj mero</h1>
         <form style={formStyle}>
           <TextField
             id="outlinedTeza"

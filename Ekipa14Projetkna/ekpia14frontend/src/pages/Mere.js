@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import "../components/css/mere.css";
 
 function Mere() {
 
@@ -14,9 +15,15 @@ function Mere() {
         setMera(result.data)
     }
 
+    const deleteMera= async (id)=>{
+        await axios.delete(`http://localhost:8080/mera/delete/${id}`)
+        loadMera()
+    }
+
     return (
         <div>
             <h1>Vse mere</h1>
+            <button className="btn btn-primary mx-2"> <a className='editButton' href={`/novaMera/${sessionStorage.getItem('idPrijavljenega')}`}>Dodaj mero</a></button>
             <div>
                 <table className="table border shadow">
                     <thead>
@@ -42,9 +49,8 @@ function Mere() {
                             <td>{mera.starost}</td>
                             <td>{mera.datum_vnosa}</td>
                             <td>
-                                <button className="btn btn-primary mx-2">View</button>
-                                <button className="btn btn-outline-primary mx-2">Edit</button>
-                                <button className="btn btn-danger mx-2">Delete</button>
+                                <button className="btn btn-primary mx-2"> <a className='editButton' href={`/novaMera/${sessionStorage.getItem('idPrijavljenega')}`}>Edit</a></button>
+                                <button className="btn btn-danger mx-2" onClick={()=> deleteMera(mera.id)}>Delete</button>
                             </td>
                         </tr>
                                 ))
