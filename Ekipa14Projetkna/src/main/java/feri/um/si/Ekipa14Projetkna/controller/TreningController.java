@@ -2,6 +2,7 @@ package feri.um.si.Ekipa14Projetkna.controller;
 
 import feri.um.si.Ekipa14Projetkna.exception.TreningNotFoundException;
 import feri.um.si.Ekipa14Projetkna.exception.UporabnikNotFoundException;
+import feri.um.si.Ekipa14Projetkna.model.Mera;
 import feri.um.si.Ekipa14Projetkna.model.Trening;
 import feri.um.si.Ekipa14Projetkna.service.TreningService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/trening")
@@ -70,6 +72,23 @@ public class TreningController {
 
             return treningService.getTreningiParam(trajanjeVMin, volumenVKG);
     }
+
+    @GetMapping("/getTrening/{id}")
+    public List<Trening> najdiMereUporabnika(@PathVariable int id){
+        List<Trening> vsiTreningi = treningService.getTreningi();
+        return vsiTreningi.stream()
+                .filter(trening -> trening.getUporabnik().getId() == id)
+                .collect(Collectors.toList());
+//        List<Mera> ujemanja = new ArrayList<>();
+//        for (Mera mera:
+//                vseMere) {
+//            if(mera.getUporabnik().getId() == idUser){
+//                ujemanja.add(mera);
+//                return vseMere;
+//            }
+//        }
+//        return ujemanja;
+    };
 
 
 }
