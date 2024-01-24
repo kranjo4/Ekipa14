@@ -60,7 +60,7 @@ const formatiranDatum = `${year}-${month}-${day}`;
   return (
     <Container>
       <Paper elevation={3} style={paperStyle}>
-        <h1 style={{ color: "black" }}>Prijava</h1>
+        <h1 style={{ color: "black" }}>Dodaj mero</h1>
         <form style={formStyle}>
           <TextField
             id="outlinedTeza"

@@ -1,6 +1,7 @@
 package feri.um.si.Ekipa14Projetkna.controller;
 
 import feri.um.si.Ekipa14Projetkna.exception.MeraNotFoundException;
+import feri.um.si.Ekipa14Projetkna.exception.UporabnikNotFoundException;
 import feri.um.si.Ekipa14Projetkna.model.Mera;
 
 import feri.um.si.Ekipa14Projetkna.model.Uporabnik;
@@ -57,15 +58,26 @@ public class MeraController {
         return vseMere.stream()
                 .filter(mera -> mera.getUporabnik().getId() == id)
                 .collect(Collectors.toList());
-//        List<Mera> ujemanja = new ArrayList<>();
-//        for (Mera mera:
-//                vseMere) {
-//            if(mera.getUporabnik().getId() == idUser){
-//                ujemanja.add(mera);
-//                return vseMere;
-//            }
-//        }
-//        return ujemanja;
+    };
+
+    @DeleteMapping("/delete/{id}")
+    String deleteMera(@PathVariable int id) {
+
+        Mera mera = meraService.getMeraById(id);
+
+        if (mera == null) {
+            throw new MeraNotFoundException(id);
+        }
+        meraService.deleteMeraById(id);
+        return "Mera z id: " + id + " je bila uspešno izbrisana";
+    }
+
+    @GetMapping("/getMUT/{id}")
+    public List<Mera> najdiMereUporabnikaInTeza(@PathVariable int id,@ RequestParam(required = false, defaultValue = "0") int tezaVec, @RequestParam(required = false, defaultValue = "1000") int tezaMajn){
+        List<Mera> vseMere = meraService.findAll();
+        return vseMere.stream()
+                .filter(mera -> mera.getUporabnik().getId() == id && mera.getTezaVKG() >= tezaVec &&   mera.getTezaVKG() <= tezaMajn)
+                .collect(Collectors.toList());
     };
 
 }

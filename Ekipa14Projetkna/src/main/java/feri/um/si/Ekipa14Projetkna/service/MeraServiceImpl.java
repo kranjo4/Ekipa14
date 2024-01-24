@@ -1,6 +1,7 @@
 package feri.um.si.Ekipa14Projetkna.service;
 
 import feri.um.si.Ekipa14Projetkna.model.Mera;
+import feri.um.si.Ekipa14Projetkna.model.Uporabnik;
 import feri.um.si.Ekipa14Projetkna.repository.MeraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,14 @@ public class MeraServiceImpl implements MeraService {
     @Override
     public Mera getMeraById(int id) {
         return meraRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Mera deleteMeraById(int id){
+        Mera mera = meraRepository.findById(id).orElse(null);
+
+        meraRepository.deleteById(id);
+        return mera;
     }
 
 }
