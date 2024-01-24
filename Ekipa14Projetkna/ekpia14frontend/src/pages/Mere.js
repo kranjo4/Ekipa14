@@ -10,7 +10,7 @@ function Mere() {
     }, []);
 
     const loadMera = async ()=>{
-        const result = await axios.get("http://localhost:8080/mera/getAllMera")
+        const result = await axios.get("/mera/getMU/"+sessionStorage.getItem('idPrijavljenega'))
         setMera(result.data)
     }
 

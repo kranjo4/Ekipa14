@@ -9,8 +9,9 @@ import feri.um.si.Ekipa14Projetkna.service.MeraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -47,5 +48,22 @@ public class MeraController {
             throw new MeraNotFoundException(id);
         }
     }
+
+    @GetMapping("/getMU/{id}")
+    public List<Mera> najdiMereUporabnika(@PathVariable int id){
+        List<Mera> vseMere = meraService.findAll();
+        return vseMere.stream()
+                .filter(mera -> mera.getUporabnik().getId() == id)
+                .collect(Collectors.toList());/*
+        List<Mera> ujemanja = new ArrayList<>();
+        for (Mera mera:
+                vseMere) {
+            if(mera.getUporabnik().getId() == idUser){
+                ujemanja.add(mera);
+                return vseMere;
+            }
+        }
+        return ujemanja;*/
+    };
 
 }

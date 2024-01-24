@@ -10,6 +10,7 @@ import Registration from './pages/Registration'
 import Prijava from './pages/Prijava'
 import Mere from './pages/Mere'
 import EditUporabnik from './pages/EditUporabnik'
+import NovaMera from './pages/NovaMera';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/prijava" element={<Prijava />} />
           <Route path="/mere" element={<Mere />} />
           <Route path="/edituser/:id" element={<EditUporabnik />} />
+          <Route path='/novaMera/:id' element={<NovaMera />}></Route>
         </Routes>
       </div>
     </Router>

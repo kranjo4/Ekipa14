@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import { Paper } from '@mui/material';
 import Button from '@mui/material/Button';
 
-export default function Uporabnik() { //TODO ne vem sam to rabi biti uporabnik no clue why
+export default function Prijava() { 
     const paperStyle = { padding: '50px 30px', width: 500, margin: "10px auto" };
     const formStyle = { display: 'flex', flexDirection: 'column', gap: '20px' }; // Adjust the gap as needed
 
