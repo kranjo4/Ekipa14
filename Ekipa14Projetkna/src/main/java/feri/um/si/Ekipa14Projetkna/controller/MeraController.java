@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/mera")
 public class MeraController {
@@ -36,6 +37,7 @@ public class MeraController {
     @PutMapping("/updateMera/{id}")
     public Mera update(@PathVariable int id, @RequestBody Mera novaMera){
         Mera staraMera = meraService.getMeraById(id);
+
 
 
         if (staraMera != null) {
