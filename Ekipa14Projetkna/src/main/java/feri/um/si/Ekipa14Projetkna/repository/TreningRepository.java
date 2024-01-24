@@ -11,10 +11,10 @@ import java.util.Set;
 
 @Repository
 public interface TreningRepository extends JpaRepository<Trening, Integer> {
-    @Query("SELECT t FROM Trening t WHERE t.trajanjeVMin IN :trajanjeVMin AND t.volumenVKG IN :volumenVKG")
-    List<Trening> findAllByTrajanjeInAndVolumenIn(@Param("trajanjeVMin") Set<Integer> trajanjeVMin, @Param("volumenVKG") Set<Integer> volumenVKG);
+    @Query("SELECT t FROM Trening t WHERE t.trajanjeVMin > :trajanjeVMin AND t.volumenVKG > :volumenVKG")
+    List<Trening> findAllByTrajanjeInAndVolumenIn(@Param("trajanjeVMin") Integer trajanjeVMin, @Param("volumenVKG") Double volumenVKG);
 }
 
-
+// Uporabnik u WHERE u.id = t.uporabnik_id AND
 
 

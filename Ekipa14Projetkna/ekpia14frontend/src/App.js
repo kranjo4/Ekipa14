@@ -12,6 +12,7 @@ import Mere from './pages/Mere'
 import EditUporabnik from './pages/EditUporabnik'
 import NovaMera from './pages/NovaMera';
 
+
 function App() {
   return (
     <Router>
@@ -26,6 +27,7 @@ function App() {
           <Route path="/mere" element={<Mere />} />
           <Route path="/edituser/:id" element={<EditUporabnik />} />
           <Route path='/novaMera/:id' element={<NovaMera />}></Route>
+
         </Routes>
       </div>
     </Router>

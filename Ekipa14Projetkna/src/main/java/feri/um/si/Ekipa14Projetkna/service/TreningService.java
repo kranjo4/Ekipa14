@@ -12,5 +12,5 @@ public interface TreningService {
     public List<Trening> getTreningi();
     public Trening getTreningById(int id);
     public Trening deleteTreningById(int id);
-public List<Trening> getTreningiParam(Set<Integer> trajanjeVMin, Set<Integer> volumenVKG);
+public List<Trening> getTreningiParam(Integer trajanjeVMin, Double volumenVKG);
 }

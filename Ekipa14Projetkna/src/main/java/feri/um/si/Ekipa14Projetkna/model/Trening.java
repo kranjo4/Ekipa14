@@ -1,9 +1,7 @@
 package feri.um.si.Ekipa14Projetkna.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
 import java.sql.Time;
 import java.text.DecimalFormat;
@@ -20,6 +18,10 @@ public class Trening {
     private double volumenVKG;
 //    public ArrayList<Set> seznamSetov = new ArrayList<Set>();
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "uporabnik_id")
+    private Uporabnik uporabnik;
 
     public Trening() {
     }
@@ -62,5 +64,13 @@ public class Trening {
 
     public void setVolumenVKG(double volumenVKG) {
         this.volumenVKG = volumenVKG;
+    }
+
+    public Uporabnik getUporabnik() {
+        return uporabnik;
+    }
+
+    public void setUporabnik(Uporabnik uporabnik) {
+        this.uporabnik = uporabnik;
     }
 }

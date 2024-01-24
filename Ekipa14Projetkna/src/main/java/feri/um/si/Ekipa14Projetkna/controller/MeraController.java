@@ -56,16 +56,16 @@ public class MeraController {
         List<Mera> vseMere = meraService.findAll();
         return vseMere.stream()
                 .filter(mera -> mera.getUporabnik().getId() == id)
-                .collect(Collectors.toList());/*
-        List<Mera> ujemanja = new ArrayList<>();
-        for (Mera mera:
-                vseMere) {
-            if(mera.getUporabnik().getId() == idUser){
-                ujemanja.add(mera);
-                return vseMere;
-            }
-        }
-        return ujemanja;*/
+                .collect(Collectors.toList());
+//        List<Mera> ujemanja = new ArrayList<>();
+//        for (Mera mera:
+//                vseMere) {
+//            if(mera.getUporabnik().getId() == idUser){
+//                ujemanja.add(mera);
+//                return vseMere;
+//            }
+//        }
+//        return ujemanja;
     };
 
 }
