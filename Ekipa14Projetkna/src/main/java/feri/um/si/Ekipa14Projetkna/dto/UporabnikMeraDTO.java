@@ -3,14 +3,17 @@ package feri.um.si.Ekipa14Projetkna.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 public class UporabnikMeraDTO {
     private int uporabnikId;
     private String username;
-    private int tezaVKG;
-    private int visinaVcm;
-    private int starost;
+
+    List<MeraDTO> mere = new ArrayList<>();
+    List<TreningDTO> trenigi = new ArrayList<>();;
 
     public UporabnikMeraDTO() {
     }
@@ -30,28 +33,21 @@ public class UporabnikMeraDTO {
     public void setUsername(String username) {
         this.username = username;
     }
-
-    public int getTezaVKG() {
-        return tezaVKG;
+    public List<MeraDTO> getMere() {
+        return mere;
     }
 
-    public void setTezaVKG(int tezaVKG) {
-        this.tezaVKG = tezaVKG;
+    public void setMere(List<MeraDTO> mere) {
+        this.mere = mere;
     }
 
-    public int getVisinaVcm() {
-        return visinaVcm;
+    public List<TreningDTO> getTrenigi() {
+        return trenigi;
     }
 
-    public void setVisinaVcm(int visinaVcm) {
-        this.visinaVcm = visinaVcm;
+    public void setTrenigi(List<TreningDTO> trenigi) {
+        this.trenigi = trenigi;
     }
 
-    public int getStarost() {
-        return starost;
-    }
 
-    public void setStarost(int starost) {
-        this.starost = starost;
-    }
 }

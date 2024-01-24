@@ -42,9 +42,9 @@ export default function Navbar() {
             <li>
                 <a href="http://localhost:3000/Prijava">Prijava</a>
               </li>
-              <li>
+              {/* <li>
                 <a href="http://localhost:3000/">Login</a>
-              </li>
+              </li> */}
               <li>
                 <a href="http://localhost:3000/Registration">Registracija</a>
               </li>

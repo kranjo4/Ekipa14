@@ -1,6 +1,8 @@
 package feri.um.si.Ekipa14Projetkna.service;
 
+import feri.um.si.Ekipa14Projetkna.dto.MeraDTO;
 import feri.um.si.Ekipa14Projetkna.dto.UporabnikMeraDTO;
+import feri.um.si.Ekipa14Projetkna.model.Mera;
 import feri.um.si.Ekipa14Projetkna.model.Uporabnik;
 import feri.um.si.Ekipa14Projetkna.repository.UporabnikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +39,26 @@ public class UporabnikServiceImpl implements UporabnikService {
         UporabnikMeraDTO uporabnikMeraDTO = new UporabnikMeraDTO();
         uporabnikMeraDTO.setUporabnikId(uporabnik.getId());
         uporabnikMeraDTO.setUsername(uporabnik.getUsername());
-        uporabnikMeraDTO.setTezaVKG(uporabnik.getMERA().getTezaVKG());
-        uporabnikMeraDTO.setVisinaVcm(uporabnik.getMERA().getVisinaVcm());
-        uporabnikMeraDTO.setStarost(uporabnik.getMERA().getStarost());
+
+
+//        uporabnik.getMera().stream().forEach(mera -> {
+//            MeraDTO meraDto = new MeraDTO();
+//            meraDto.setTezaVKG(mera.getTezaVKG());
+//            uporabnikMeraDTO.getMere().add(meraDto);
+//        });
+
+        for (Mera m: uporabnik.getMera()) {
+            MeraDTO mera = new MeraDTO();
+            mera.setTezaVKG(m.getTezaVKG());
+            uporabnikMeraDTO.getMere().add(mera);
+        }
+
+
+//        for (Mera m: uporabnik.getMera()) {
+//            MeraDTO mera = new MeraDTO();
+//            mera.setTezaVKG(m.getTezaVKG());
+//        }
+
         return uporabnikMeraDTO;
     }
 

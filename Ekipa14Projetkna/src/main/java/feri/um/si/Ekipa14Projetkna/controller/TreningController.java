@@ -22,7 +22,6 @@ public class TreningController {
     public Trening add(@RequestBody Trening trening){
         return  treningService.saveTrening(trening);
     }
-
     @GetMapping("/trening")
     public List<Trening> getTreningi(){
         return treningService.getTreningi();
@@ -64,12 +63,12 @@ public class TreningController {
         return "Trening z id: " + id + " je bil uspešno izbrisan";
     }
 
-    @RequestMapping("/treningg")
+    @GetMapping("/treningg")
     public List<Trening> getTrening(
-            @RequestParam(value = "trajanjeVMin", required = false)Set<Integer> trajanjeVMin,
-            @RequestParam(value = "volumenVKG", required = false)Set<Integer> volumenVKG){
+            @RequestParam(value = "trajanjeVMin", required = false)Integer trajanjeVMin,
+            @RequestParam(value = "volumenVKG", required = false)Double volumenVKG){
 
-                return treningService.getTreningiParam(trajanjeVMin, volumenVKG);
+            return treningService.getTreningiParam(trajanjeVMin, volumenVKG);
     }
 
 

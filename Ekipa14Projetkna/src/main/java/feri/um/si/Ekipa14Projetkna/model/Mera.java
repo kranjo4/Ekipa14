@@ -1,11 +1,13 @@
 package feri.um.si.Ekipa14Projetkna.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
 
 
 @Entity
+@Data
 public class Mera{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

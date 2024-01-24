@@ -38,7 +38,7 @@ public class TreningServiceImpl implements TreningService {
     }
 
     @Override
-    public List<Trening> getTreningiParam(Set<Integer> trajanjeVMin, Set<Integer> volumenVKG) {
+    public List<Trening> getTreningiParam(Integer trajanjeVMin, Double volumenVKG) {
 
         List<Trening> treningList = new ArrayList<>();
 
@@ -46,7 +46,7 @@ public class TreningServiceImpl implements TreningService {
             treningRepository.findAll()
                     .forEach(trening -> treningList.add(trening));
         }else{
-            return treningRepository.findAllByTrajanjeInAndVolumenIn(trajanjeVMin, volumenVKG);
+            treningList.addAll(treningRepository.findAllByTrajanjeInAndVolumenIn(trajanjeVMin, volumenVKG));
         }
         return treningList;
     }

@@ -29,6 +29,10 @@ public class Uporabnik{
     @OneToMany(mappedBy = "uporabnik", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Mera> mera = new ArrayList<>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "uporabnik", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Trening> trening = new ArrayList<>();
+
     public Mera getMERA() {
         if (!mera.isEmpty()) {
             return mera.get(0);
@@ -42,6 +46,15 @@ public class Uporabnik{
 
     public void setMera(List<Mera> mera) {
         this.mera = mera;
+    }
+
+
+    public List<Trening> getTrening() {
+        return trening;
+    }
+
+    public void setTrening(List<Trening> trening) {
+        this.trening = trening;
     }
 
     public Uporabnik() {
