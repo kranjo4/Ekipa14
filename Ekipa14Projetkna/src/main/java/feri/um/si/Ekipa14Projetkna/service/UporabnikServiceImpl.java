@@ -1,8 +1,10 @@
 package feri.um.si.Ekipa14Projetkna.service;
 
 import feri.um.si.Ekipa14Projetkna.dto.MeraDTO;
+import feri.um.si.Ekipa14Projetkna.dto.TreningDTO;
 import feri.um.si.Ekipa14Projetkna.dto.UporabnikMeraDTO;
 import feri.um.si.Ekipa14Projetkna.model.Mera;
+import feri.um.si.Ekipa14Projetkna.model.Trening;
 import feri.um.si.Ekipa14Projetkna.model.Uporabnik;
 import feri.um.si.Ekipa14Projetkna.repository.UporabnikRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +55,12 @@ public class UporabnikServiceImpl implements UporabnikService {
             uporabnikMeraDTO.getMere().add(mera);
         }
 
+        for (Trening t: uporabnik.getTrening()){
+            TreningDTO trening = new TreningDTO();
+            trening.setTrajanjeVMin(t.getTrajanjeVMin());
+            uporabnikMeraDTO.getTrenigi().add(trening);
+        }
+
 
 //        for (Mera m: uporabnik.getMera()) {
 //            MeraDTO mera = new MeraDTO();
@@ -61,6 +69,8 @@ public class UporabnikServiceImpl implements UporabnikService {
 
         return uporabnikMeraDTO;
     }
+
+
 
     public Uporabnik getUporabnikById(int id){
         return uporabnnikRepository.findById(id).orElse(null);

@@ -50,4 +50,6 @@ public class TreningServiceImpl implements TreningService {
         }
         return treningList;
     }
+
+
 }

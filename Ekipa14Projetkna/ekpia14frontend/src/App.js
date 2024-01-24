@@ -11,6 +11,8 @@ import Prijava from './pages/Prijava'
 import Mere from './pages/Mere'
 import EditUporabnik from './pages/EditUporabnik'
 import NovaMera from './pages/NovaMera';
+import Treningi from './pages/Trening';
+import NovTrening from './pages/NovTrening';
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
           <Route path="/mere" element={<Mere />} />
           <Route path="/edituser/:id" element={<EditUporabnik />} />
           <Route path='/novaMera/:id' element={<NovaMera />}></Route>
+          <Route path="/treningi" element={<Treningi/>}></Route>
+          <Route path="/novTrening/:id" element={<NovTrening/>}></Route>
 
         </Routes>
       </div>
