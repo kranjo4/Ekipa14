@@ -8,9 +8,12 @@ import feri.um.si.Ekipa14Projetkna.model.Uporabnik;
 import feri.um.si.Ekipa14Projetkna.service.MeraService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -77,6 +80,22 @@ public class MeraController {
         List<Mera> vseMere = meraService.findAll();
         return vseMere.stream()
                 .filter(mera -> mera.getUporabnik().getId() == id && mera.getTezaVKG() >= tezaVec &&   mera.getTezaVKG() <= tezaMajn)
+                .collect(Collectors.toList());
+    };
+
+    @GetMapping("/getMUTD/{id}")
+    public List<Mera> najdiMereUporabnikaInTezaInDatum(@PathVariable int id,
+                                                       @RequestParam(required = false, defaultValue = "0") int tezaVec,
+                                                       @RequestParam(required = false, defaultValue = "1000") int tezaMajn,
+                                                       @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date datumOd){
+        List<Mera> vseMere = meraService.findAll();
+        return vseMere.stream()
+                .filter(
+                        mera -> mera.getUporabnik().getId() == id
+                                && mera.getTezaVKG() >= tezaVec
+                        &&   mera.getTezaVKG() <= tezaMajn
+                        && (datumOd == null || mera.getDatum_vnosa().after(datumOd))
+                )
                 .collect(Collectors.toList());
     };
 
