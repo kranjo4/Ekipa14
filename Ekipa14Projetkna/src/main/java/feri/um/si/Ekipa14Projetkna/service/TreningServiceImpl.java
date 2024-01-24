@@ -5,10 +5,12 @@ import feri.um.si.Ekipa14Projetkna.repository.TreningRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
-public class TreningServiceImpl implements TreningService{
+public class TreningServiceImpl implements TreningService {
 
     @Autowired
     private TreningRepository treningRepository;
@@ -33,5 +35,19 @@ public class TreningServiceImpl implements TreningService{
 
         treningRepository.deleteById(id);
         return trening;
+    }
+
+    @Override
+    public List<Trening> getTreningiParam(Set<Integer> trajanjeVMin, Set<Integer> volumenVKG) {
+
+        List<Trening> treningList = new ArrayList<>();
+
+        if (trajanjeVMin == null){
+            treningRepository.findAll()
+                    .forEach(trening -> treningList.add(trening));
+        }else{
+            return treningRepository.findAllByTrajanjeInAndVolumenIn(trajanjeVMin, volumenVKG);
+        }
+        return treningList;
     }
 }

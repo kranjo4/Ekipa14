@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/trening")
@@ -62,5 +63,14 @@ public class TreningController {
         treningService.deleteTreningById(id);
         return "Trening z id: " + id + " je bil uspešno izbrisan";
     }
+
+    @RequestMapping("/treningg")
+    public List<Trening> getTrening(
+            @RequestParam(value = "trajanjeVMin", required = false)Set<Integer> trajanjeVMin,
+            @RequestParam(value = "volumenVKG", required = false)Set<Integer> volumenVKG){
+
+                return treningService.getTreningiParam(trajanjeVMin, volumenVKG);
+    }
+
 
 }
