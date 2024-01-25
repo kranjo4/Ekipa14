@@ -16,7 +16,7 @@ const EmailSender = () => {
     e.preventDefault();
 
     if (!file) {
-      alert("Please upload a file.");
+      alert("Nalozi datoteko.");
       return;
     }
 
@@ -33,10 +33,10 @@ const EmailSender = () => {
           attachment,
         });
 
-        alert("Email sent successfully!");
+        alert("Email poslan");
       } catch (error) {
-        console.error("Email sending failed:", error);
-        alert("Email sending failed.");
+        console.error("Napaka:", error);
+        alert("Napaka.");
       }
     };
 

@@ -11,18 +11,16 @@ app.post('/send-email', async (req, res) => {
   try {
     const { to, subject, text, attachment } = req.body;
 
-    // Create a Nodemailer transporter
     const transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: 'luka.cresnar@gmail.com', // Replace with your Gmail email address
-        pass: 'vdsptmuopovqzfgt', // Replace with your Gmail password
+        user: 'luka.cresnar@gmail.com', 
+        pass: 'vdsptmuopovqzfgt', 
       },
     });
 
-    // Send email with attachment
     const info = await transporter.sendMail({
-      from: 'luka.cresnar@gmail.com', // Replace with your Gmail email address
+      from: 'luka.cresnar@gmail.com', 
       to,
       subject,
       text,
@@ -34,10 +32,10 @@ app.post('/send-email', async (req, res) => {
       ],
     });
 
-    console.log('Email sent:', info);
+    console.log('Mail poslan:', info);
     res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Email sending failed:', error);
+    console.error('Napaka:', error);
     res.status(500).json({ success: false, error: error.message });
   }
 });

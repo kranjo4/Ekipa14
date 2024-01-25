@@ -15,6 +15,7 @@ import EditMera from './pages/EditMera';
 import Treningi from './pages/Trening';
 import NovTrening from './pages/NovTrening';
 import MailPage from './pages/MailPage';
+import PDF from './pages/pdf';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/treningi" element={<Treningi/>}></Route>
           <Route path="/novTrening/:id" element={<NovTrening/>}></Route>
           <Route path="/mailPage" element={<MailPage/>}></Route>
+          <Route path="/pdf" element={<PDF/>}></Route>
 
         </Routes>
       </div>
