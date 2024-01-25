@@ -18,8 +18,8 @@ public class Trening {
     private double volumenVKG;
 //    public ArrayList<Set> seznamSetov = new ArrayList<Set>();
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+//    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "uporabnik_id")
     private Uporabnik uporabnik;
 

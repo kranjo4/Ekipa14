@@ -13,6 +13,7 @@ import EditUporabnik from './pages/EditUporabnik'
 import NovaMera from './pages/NovaMera';
 import Treningi from './pages/Trening';
 import NovTrening from './pages/NovTrening';
+import Edittrening from './pages/EditTrening';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path='/novaMera/:id' element={<NovaMera />}></Route>
           <Route path="/treningi" element={<Treningi/>}></Route>
           <Route path="/novTrening/:id" element={<NovTrening/>}></Route>
+          <Route path="/edittrening/:id" element={<Edittrening />} />
 
         </Routes>
       </div>
