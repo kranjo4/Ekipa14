@@ -11,9 +11,12 @@ import Prijava from './pages/Prijava'
 import Mere from './pages/Mere'
 import EditUporabnik from './pages/EditUporabnik'
 import NovaMera from './pages/NovaMera';
+import EditMera from './pages/EditMera';
 import Treningi from './pages/Trening';
 import NovTrening from './pages/NovTrening';
 import Edittrening from './pages/EditTrening';
+import MailPage from './pages/MailPage';
+import PDF from './pages/pdf';
 
 
 function App() {
@@ -30,9 +33,12 @@ function App() {
           <Route path="/mere" element={<Mere />} />
           <Route path="/edituser/:id" element={<EditUporabnik />} />
           <Route path='/novaMera/:id' element={<NovaMera />}></Route>
+          <Route path='/EditMera/:id' element={<EditMera />}></Route>
           <Route path="/treningi" element={<Treningi/>}></Route>
           <Route path="/novTrening/:id" element={<NovTrening/>}></Route>
           <Route path="/edittrening/:id" element={<Edittrening />} />
+          <Route path="/mailPage" element={<MailPage/>}></Route>
+          <Route path="/pdf" element={<PDF/>}></Route>
 
         </Routes>
       </div>

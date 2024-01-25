@@ -1,0 +1,27 @@
+form{
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+#main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+label{
+    gap: 1rem;
+}
+input{
+    width: 100%;
+}
+textarea{
+    width: 100%;
+}
+button{
+    border: none;
+}
