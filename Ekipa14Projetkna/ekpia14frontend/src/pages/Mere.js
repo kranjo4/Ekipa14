@@ -49,7 +49,7 @@ function Mere() {
                             <td>{mera.starost}</td>
                             <td>{mera.datum_vnosa}</td>
                             <td>
-                                <button className="btn btn-primary mx-2"> <a className='editButton' href={`/novaMera/${sessionStorage.getItem('idPrijavljenega')}`}>Edit</a></button>
+                                <button className="btn btn-primary mx-2"> <a className='editButton' href={`/editMera/${mera.id}`}>Edit</a></button>
                                 <button className="btn btn-danger mx-2" onClick={()=> deleteMera(mera.id)}>Delete</button>
                             </td>
                         </tr>

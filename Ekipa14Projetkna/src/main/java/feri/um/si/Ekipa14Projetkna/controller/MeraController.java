@@ -38,6 +38,11 @@ public class MeraController {
 //        return "Nova mera dodana";
     }
 
+    @GetMapping("/getMera/{id}")
+    public Mera meraById(@PathVariable int id){
+        return meraService.getMeraById(id);
+    };
+
     @PutMapping("/updateMera/{id}")
     public Mera update(@PathVariable int id, @RequestBody Mera novaMera){
         Mera staraMera = meraService.getMeraById(id);
