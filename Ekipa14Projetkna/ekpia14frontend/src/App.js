@@ -14,6 +14,7 @@ import NovaMera from './pages/NovaMera';
 import EditMera from './pages/EditMera';
 import Treningi from './pages/Trening';
 import NovTrening from './pages/NovTrening';
+import Edittrening from './pages/EditTrening';
 import MailPage from './pages/MailPage';
 import PDF from './pages/pdf';
 
@@ -35,6 +36,7 @@ function App() {
           <Route path='/EditMera/:id' element={<EditMera />}></Route>
           <Route path="/treningi" element={<Treningi/>}></Route>
           <Route path="/novTrening/:id" element={<NovTrening/>}></Route>
+          <Route path="/edittrening/:id" element={<Edittrening />} />
           <Route path="/mailPage" element={<MailPage/>}></Route>
           <Route path="/pdf" element={<PDF/>}></Route>
 

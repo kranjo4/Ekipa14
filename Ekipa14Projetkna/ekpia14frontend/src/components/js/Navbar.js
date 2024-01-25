@@ -24,14 +24,14 @@ export default function Navbar() {
           <li>
             <a href="http://localhost:3000/Index">Domov</a>
           </li>
+          {prijavlen ? (
+            <>
           <li>
             <a href="http://localhost:3000/mailPage">Mail</a>
           </li>
           <li>
             <a href="http://localhost:3000/Crud">CRUD</a>
           </li>
-          {prijavlen ? (
-            <>
               <li>
                 <a href="http://localhost:3000/Mere">Mere</a>
               </li>

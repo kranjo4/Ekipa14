@@ -1,5 +1,6 @@
 package feri.um.si.Ekipa14Projetkna.controller;
 
+import feri.um.si.Ekipa14Projetkna.exception.MeraNotFoundException;
 import feri.um.si.Ekipa14Projetkna.exception.TreningNotFoundException;
 import feri.um.si.Ekipa14Projetkna.exception.UporabnikNotFoundException;
 import feri.um.si.Ekipa14Projetkna.model.Mera;
@@ -59,7 +60,7 @@ public class TreningController {
         Trening trening = treningService.getTreningById(id);
 
         if(trening == null){
-            throw new UporabnikNotFoundException(id);
+            throw new TreningNotFoundException(id);
         }
         treningService.deleteTreningById(id);
         return "Trening z id: " + id + " je bil uspešno izbrisan";
@@ -79,16 +80,19 @@ public class TreningController {
         return vsiTreningi.stream()
                 .filter(trening -> trening.getUporabnik().getId() == id)
                 .collect(Collectors.toList());
-//        List<Mera> ujemanja = new ArrayList<>();
-//        for (Mera mera:
-//                vseMere) {
-//            if(mera.getUporabnik().getId() == idUser){
-//                ujemanja.add(mera);
-//                return vseMere;
-//            }
-//        }
-//        return ujemanja;
     };
+
+//    @DeleteMapping("/delete/{id}")
+//    String deleteTrening(@PathVariable int id) {
+//
+//        Trening trening = treningService.getTreningById(id);
+//
+//        if (trening == null) {
+//            throw new TreningNotFoundException(id);
+//        }
+//        treningService.deleteTreningById(id);
+//        return "Trening z id: " + id + " je bil uspešno izbrisana";
+//    }
 
 
 }

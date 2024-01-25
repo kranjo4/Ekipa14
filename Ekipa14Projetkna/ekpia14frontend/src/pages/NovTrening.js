@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 
 export default function NovTrening() {
   const paperStyle = { padding: "50px 30px", width: 500, margin: "10px auto" };
-  const formStyle = { display: "flex", flexDirection: "column", gap: "20px" }; // Adjust the gap as needed
+  const formStyle = { display: "flex", flexDirection: "column", gap: "20px" }; 
 
   const { id } = useParams();
   const [cas, setCas] = useState("");
@@ -16,7 +16,11 @@ export default function NovTrening() {
   const [volumenVKG, setVolumenVKG] = useState("");
 
   const datum = new Date();
-    const formatiranDatum = `${datum.getFullYear()}-${datum.getMonth() + 1}-${datum.getDate()}`;
+    const year = datum.getFullYear();
+    const month = (datum.getMonth() + 1).toString().padStart(2, '0'); 
+    const day = datum.getDate().toString().padStart(2, '0'); 
+
+const formatiranDatum = `${year}-${month}-${day}`;
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -30,39 +34,27 @@ export default function NovTrening() {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      return response.json(); // This returns a promise as well
+      window.location.href = 'http://localhost:3000/Treningi'
+      return response.json(); 
     });
-    // .then((data) => {
-    //     console.log("Podatki:", data); //TODO spremeni pol da ni v konzoli
-    //     if(data !== -1){
-    //         window.sessionStorage.setItem('idPrijavljenega', data) //TODO ja vem da to ni varno sam jebi ga
-    //         window.location.href = 'http://localhost:3000/Index'
-    //     } else{
-    //         alert("Napacno geslo ali mail") //TODO lepsi izpis
-    //     }
-    // })
-    // .catch((error) => {
-    //     console.error("Error:", error);
-    // });
   };
 
   return (
     <Container>
       <Paper elevation={3} style={paperStyle}>
-        <h1 style={{ color: "black" }}>Prijava</h1>
+        <h1 style={{ color: "black" }}>Dodaj trening</h1>
         <form style={formStyle}>
           <TextField
             id="outlinedTeza"
-            label="Teza"
+            label="Čas začetka treninga"
             variant="outlined"
-            type="number"
             fullWidth
             value={cas}
             onChange={(e) => setCas(e.target.value)}
           />
           <TextField
             id="outlinedVisina"
-            label="Visina"
+            label="Trajanje v minutah"
             variant="outlined"
             type="number"
             fullWidth
@@ -71,7 +63,7 @@ export default function NovTrening() {
           />
           <TextField
             id="outlinedvolumenVKG"
-            label="volumenVKG"
+            label="Volumen v kg"
             variant="outlined"
             type="number"
             fullWidth
