@@ -1,0 +1,14 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: ekipa14-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ekipa14
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ekipa14-mysql-data:/var/lib/mysql
+volumes:
+  ekipa14-mysql-data:
